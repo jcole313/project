@@ -17,6 +17,8 @@ logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
 
 
+
+
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
     mae = mean_absolute_error(actual, pred)
@@ -71,6 +73,9 @@ if __name__ == "__main__":
         mlflow.log_metric("mae", mae)
 
 
+        # For remote server only (Dagshub)
+        remote_server_uri = "https://dagshub.com/jatin-12-2002/MLFLOW-DEMO.mlflow"
+        mlflow.set_tracking_uri(remote_server_uri)
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
