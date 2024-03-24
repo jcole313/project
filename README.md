@@ -1,5 +1,6 @@
 # Chest-Disease-Classification-from-Chest-CT-Scan-Image
 
+ - [Data link](https://drive.google.com/file/d/1z0mreUtRmR-P-magILsDR3T7M6IkGXtY/view?usp=sharing)
 
 ## Workflows
 
@@ -47,3 +48,31 @@ pip install -r requirements.txt
 python app.py
 ```
 
+### Mlflow dagshub connection uri
+
+```bash
+MLFLOW_TRACKING_URI=https://dagshub.com/jatin-12-2002/MLFLOW-DEMO.mlflow \
+MLFLOW_TRACKING_USERNAME=jatin-12-2002 \
+MLFLOW_TRACKING_PASSWORD=e5ca3cce5e86ab8f8fc147bab0c9a86f7cd05955 \
+python script.py
+```
+
+
+### RUN from bash terminal
+
+```bash
+export MLFLOW_TRACKING_URI=https://dagshub.com/jatin-12-2002/MLFLOW-DEMO.mlflow
+
+export MLFLOW_TRACKING_USERNAME=jatin-12-2002
+
+export MLFLOW_TRACKING_PASSWORD=e5ca3cce5e86ab8f8fc147bab0c9a86f7cd05955
+
+```
+
+
+
+### DVC cmd
+
+1. dvc init
+2. dvc repro
+3. dvc dag
