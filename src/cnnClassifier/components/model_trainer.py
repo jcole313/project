@@ -5,6 +5,7 @@ import tensorflow as tf
 import time
 from cnnClassifier.entity.config_entity import TrainingConfig
 from pathlib import Path
+import shutil
 
 class Training:
     def __init__(self, config: TrainingConfig):
@@ -65,6 +66,13 @@ class Training:
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
 
+        destination_dir = path.parent.parent.parent / "model"
+        if not destination_dir.exists():
+            destination_dir.mkdir(parents=True)
+
+        # Copy the file to the destination directory
+        destination_file = destination_dir / "model.h5"
+        shutil.copyfile(path, destination_file)
 
 
     
