@@ -161,3 +161,5 @@ cython_debug/
 
 artifacts/*
 research/Chest-CT-Scan-data.zip
+mlruns
+dvc.lock
