@@ -162,3 +162,4 @@ cython_debug/
 artifacts/*
 research/Chest-CT-Scan-data.zip
 mlruns
+research/chest
