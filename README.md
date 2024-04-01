@@ -33,11 +33,11 @@ git push origin main
 ## How to run?
 
 ```bash
-conda create -n chest python=3.8 -y
+conda create -p env python=3.9 -y
 ```
 
 ```bash
-conda activate chest
+conda activate env
 ```
 
 ```bash
@@ -51,9 +51,9 @@ python app.py
 ### Mlflow dagshub connection uri
 
 ```bash
-MLFLOW_TRACKING_URI=https://dagshub.com/jatin-12-2002/Chest-Disease-Classification-from-Chest-CT-Scan-Image.mlflow \
-MLFLOW_TRACKING_USERNAME=jatin-12-2002 \
-MLFLOW_TRACKING_PASSWORD=e5ca3cce5e86ab8f8fc147bab0c9a86f7cd05955 \
+MLFLOW_TRACKING_URI=https://dagshub.com/jcole313/project.mlflow \
+MLFLOW_TRACKING_USERNAME=jcole313 \
+MLFLOW_TRACKING_PASSWORD=71368345455e3aa4cabbe321bbd6c4405a0db448 \
 python script.py
 ```
 
@@ -61,11 +61,11 @@ python script.py
 ### RUN from bash terminal
 
 ```bash
-export MLFLOW_TRACKING_URI=https://dagshub.com/jatin-12-2002/Chest-Disease-Classification-from-Chest-CT-Scan-Image.mlflow
+export MLFLOW_TRACKING_URI=https://dagshub.com/jcole313/project.mlflow
 
-export MLFLOW_TRACKING_USERNAME=jatin-12-2002
+export MLFLOW_TRACKING_USERNAME=jcole313
 
-export MLFLOW_TRACKING_PASSWORD=e5ca3cce5e86ab8f8fc147bab0c9a86f7cd05955
+export MLFLOW_TRACKING_PASSWORD=71368345455e3aa4cabbe321bbd6c4405a0db448
 
 ```
 
