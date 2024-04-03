@@ -1,5 +1,5 @@
 AUGMENTATION: True
-IMAGE_SIZE: [460, 460, 3] # as per ResNet50 model
+IMAGE_SIZE: [224, 224, 3] # as per ResNet50 model
 BATCH_SIZE: 16
 INCLUDE_TOP: False
 EPOCHS: 100
