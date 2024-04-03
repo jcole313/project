@@ -1,23 +1,35 @@
-# Chest-Disease-Classification-from-Chest-CT-Scan-Image
+# Chest Disease Classification from Chest CT Scan Image
 
- - [Data link](https://drive.google.com/file/d/1g8HvYzGfJm6Y5nJ-tEgs98a09hSXHRvf/view?usp=sharing)
+# Introduction
 
-## Workflows
+Chest CT scan images hold invaluable diagnostic potential in identifying various pulmonary conditions, including malignant tumors. Our project aims to streamline the classification process of these images into four distinct classes: 'adenocarcinoma', 'large cell carcinoma', 'normal', and 'squamous cell carcinoma'. Through the utilization of advanced techniques such as Deep Learning and Data Version Control (DVC), coupled with the robust ResNet50 architecture, I have developed an end-to-end pipeline that ensures efficient and accurate classification of chest CT scan images.
 
-1. Update config.yaml
-2. Update params.yaml
-3. Update the entity
-4. Update the configuration manager in src config
-5. Update the components
-6. Update the pipeline 
-7. Update the main.py
-8. Update the dvc.yaml 
+In addition to these methodologies, our project also integrates MLflow, a powerful machine learning lifecycle management tool. MLflow facilitates experiment tracking, model management, and reproducibility, allowing us to monitor and compare multiple models, hyperparameters, and experiments seamlessly. Through the synergy of DVC for data versioning and MLflow for model management, our project ensures transparency, reproducibility, and continuous improvement in the development and deployment of machine learning models.
+## Tech Stack Used
+1) Python
+2) Flask
+3) Deep Learning Algorithms
 
+## Dataset
 
+Dataset for this Project is taken from Kaggle. Here is the Dataset [Link](https://www.kaggle.com/datasets/mohamedhanyyy/chest-ctscan-images/data).
 
-## Live matarials docs
+## Dataset Information
 
-[link](https://docs.google.com/document/d/1UFiHnyKRqgx8Lodsvdzu58LbVjdWHNf-uab2WmhE0A4/edit?usp=sharing)
+* Images are not in dcm format, the images are in jpg or png to fit the model.
+* Data contain 3 chest cancer types which are Adenocarcinoma,Large cell carcinoma, Squamous cell carcinoma , and 1 folder for the normal cell.
+* Data folder is the main folder that contain all the step folders inside Data folder are test , train , valid.
+
+* test represent testing set
+* train represent training set
+* valid represent validation set
+* training set is 70%
+* testing set is 20%
+* validation set is 10%
+
+## Installation
+
+The Code is written in Python 3.9.19. If you don't have Python installed you can find it here. If you are using a lower version of Python you can upgrade using the pip package, ensuring you have the latest version of pip.
 
 
 ## Git commands
@@ -37,7 +49,7 @@ conda create -p env python=3.9 -y
 ```
 
 ```bash
-conda activate env
+conda activate ./env
 ```
 
 ```bash

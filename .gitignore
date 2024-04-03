@@ -163,3 +163,4 @@ artifacts/*
 research/Chest-CT-Scan-data.zip
 mlruns
 research/chest
+model/model.h5
