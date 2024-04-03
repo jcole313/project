@@ -3,6 +3,7 @@ from pathlib import Path
 import mlflow
 import mlflow.keras
 from urllib.parse import urlparse
+from tensorflow.keras.applications import resnet
 from cnnClassifier.entity.config_entity import EvaluationConfig
 from cnnClassifier.utils.common import read_yaml, create_directories,save_json
 
@@ -12,27 +13,25 @@ class Evaluation:
         self.config = config
 
     
-    def _valid_generator(self):
+    def _test_generator(self):
 
         datagenerator_kwargs = dict(
-            rescale = 1./255,
-            validation_split=0.30
+            dtype='float32',
+            preprocessing_function=resnet.preprocess_input
         )
 
         dataflow_kwargs = dict(
             target_size=self.config.params_image_size[:-1],
             batch_size=self.config.params_batch_size,
-            interpolation="bilinear"
+            class_mode = 'categorical'
         )
 
-        valid_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
+        test_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
             **datagenerator_kwargs
         )
 
-        self.valid_generator = valid_datagenerator.flow_from_directory(
-            directory=self.config.training_data,
-            subset="validation",
-            shuffle=False,
+        self.test_generator = test_datagenerator.flow_from_directory(
+            directory=self.config.testing_data,
             **dataflow_kwargs
         )
 
@@ -44,8 +43,8 @@ class Evaluation:
 
     def evaluation(self):
         self.model = self.load_model(self.config.path_of_model)
-        self._valid_generator()
-        self.score = self.model.evaluate(self.valid_generator)
+        self._test_generator()
+        self.score = self.model.evaluate(self.test_generator)
         self.save_score()
 
     def save_score(self):
@@ -69,6 +68,6 @@ class Evaluation:
                 # There are other ways to use the Model Registry, which depends on the use case,
                 # please refer to the doc for more information:
                 # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-                mlflow.keras.log_model(self.model, "model", registered_model_name="VGG16Model")
+                mlflow.keras.log_model(self.model, "model", registered_model_name="ResNet50Model")
             else:
                 mlflow.keras.log_model(self.model, "model")

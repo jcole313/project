@@ -48,8 +48,9 @@ class ConfigurationManager:
             params_image_size=self.params.IMAGE_SIZE,
             params_learning_rate=self.params.LEARNING_RATE,
             params_include_top=self.params.INCLUDE_TOP,
+            params_classes=self.params.CLASSES,
             params_weights=self.params.WEIGHTS,
-            params_classes=self.params.CLASSES
+            params_pooling=self.params.POOLING
         )
 
         return prepare_base_model_config
@@ -58,10 +59,12 @@ class ConfigurationManager:
 
 
     def get_training_config(self) -> TrainingConfig:
+        
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "Chest-CT-Scan-data")
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "Chest-CT-Scan-data/Data/train")
+        validation_data = os.path.join(self.config.data_ingestion.unzip_dir, "Chest-CT-Scan-data/Data/valid")
         create_directories([
             Path(training.root_dir)
         ])
@@ -71,6 +74,7 @@ class ConfigurationManager:
             trained_model_path=Path(training.trained_model_path),
             updated_base_model_path=Path(prepare_base_model.updated_base_model_path),
             training_data=Path(training_data),
+            validation_data=Path(validation_data),
             params_epochs=params.EPOCHS,
             params_batch_size=params.BATCH_SIZE,
             params_is_augmentation=params.AUGMENTATION,
@@ -84,7 +88,8 @@ class ConfigurationManager:
     def get_evaluation_config(self) -> EvaluationConfig:
         eval_config = EvaluationConfig(
             path_of_model="artifacts/training/model.h5",
-            training_data="artifacts/data_ingestion/Chest-CT-Scan-data",
+            training_data="artifacts/data_ingestion/Chest-CT-Scan-data/Data/train",
+            testing_data="artifacts/data_ingestion/Chest-CT-Scan-data/Data/test",
             mlflow_uri="https://dagshub.com/jcole313/project.mlflow",
             all_params=self.params,
             params_image_size=self.params.IMAGE_SIZE,

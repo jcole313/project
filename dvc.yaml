@@ -19,6 +19,7 @@ stages:
       - CLASSES
       - WEIGHTS
       - LEARNING_RATE
+      - POOLING
     outs:
       - artifacts/prepare_base_model
 
