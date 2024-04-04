@@ -40,11 +40,35 @@ Dataset for this Project is taken from Kaggle. Here is the Dataset [Link](https:
 * training set is 70%
 * testing set is 20%
 * validation set is 10%
+#### Dataset Details<a id='dataset-details'></a>
+<pre>
+Dataset Name            : Chest CT-Scan images Dataset (Adenocarcinoma vs Large cell carcinoma vs Squamous cell carcinoma vs Normal)
+Number of Class         : 4
+Number/Size of Images   : Total      : 1000 (124 MB)
+                          Training   : 700
+                          Testing    : 200
+                          Validation : 100 
+                         
+</pre>
+## Results<a id='results-'></a>
+We have achieved following results with ResNet50 model for detection of Adenocarcinoma,Large cell carcinoma, Squamous cell carcinoma and normal from Brain MRI images.
+
+<pre>
+<b> Performance Metrics </b>
+Test Accuracy                                    : 89.52%
+Test Loss                                        : 31.90%
+Sensitivity (Glioma)                             : 100% 
+Sensitivity (Meningioma)                         : 99% 
+Sensitivity (Pituitary)                          : 100% 
+Sensitivity (Normal)                             : 99% 
+F1-score                                         : 99.00%
+AUC                                              : 1.0
+</pre>
+
 
 ## Installation
     
 The Code is written in Python 3.9.19. If you don't have Python installed you can find it here. If you are using a lower version of Python you can upgrade using the pip package, ensuring you have the latest version of pip.
-
 
 ## Run Locally
 
@@ -75,17 +99,21 @@ export MLFLOW_TRACKING_PASSWORD=71368345455e3aa4cabbe321bbd6c4405a0db448
 ```bash
 python main.py
 ```
-### Step 5 - Run the application server
+OR
+```bash
+http://localhost:8080/train
+```
+### Step 6 - Run the application server
 ```bash
 python app.py
 ```
-### Step 5. Train application
+### Step 7 - Prediction application
 ```bash
-http://localhost:5000/train
+http://localhost:8080/
+
 ```
 
-
-### Mlflow dagshub connection uri
+## Mlflow dagshub connection Keys
 
 ```bash
 MLFLOW_TRACKING_URI=https://dagshub.com/jcole313/project.mlflow \
@@ -94,12 +122,16 @@ MLFLOW_TRACKING_PASSWORD=71368345455e3aa4cabbe321bbd6c4405a0db448 \
 python script.py
 ```
 
-
-
-
-
-### DVC cmd
-
-1. dvc init
-2. dvc repro
-3. dvc dag
+## Run DVC Pipeline
+### Step 1 - Initialize dvc
+```bash
+dvc init
+```
+### Step 2 - Run DVC Pipeline
+```bash
+dvc repro
+```
+### Step 3 - See the Tree Structure of Pipeline
+```bash
+dvc dag
+```
