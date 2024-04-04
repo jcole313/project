@@ -51,18 +51,12 @@ Number/Size of Images   : Total      : 1000 (124 MB)
                          
 </pre>
 ## Results<a id='results-'></a>
-We have achieved following results with ResNet50 model for detection of Adenocarcinoma,Large cell carcinoma, Squamous cell carcinoma and normal from Brain MRI images.
+We have achieved following results with ResNet50 model for detection of Adenocarcinoma,Large cell carcinoma, Squamous cell carcinoma and normal from Chest CT Scan images.
 
 <pre>
-<b> Performance Metrics </b>
+<b>Performance Metrics </b>
 Test Accuracy                                    : 89.52%
 Test Loss                                        : 31.90%
-Sensitivity (Glioma)                             : 100% 
-Sensitivity (Meningioma)                         : 99% 
-Sensitivity (Pituitary)                          : 100% 
-Sensitivity (Normal)                             : 99% 
-F1-score                                         : 99.00%
-AUC                                              : 1.0
 </pre>
 
 
@@ -135,3 +129,12 @@ dvc repro
 ```bash
 dvc dag
 ```
+
+## Prediction Outputs
+![image](assets/Output1.png)
+![image](assets/Output2.png)
+
+## Conclusion
+1. This project is production ready for similar use cases and will provide the automated and orchestrated pipeline.
+2. MLFlow helped us to keep a track of Parameters and metrics with respect to different set of parameters and helped to fine tune our model.
+3. ResNet50 model classify Chest CT scan images upto 89.52% respective classes and hence reduces the chance of incorrect predictions of diseases.
