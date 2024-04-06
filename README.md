@@ -94,14 +94,16 @@ export MLFLOW_TRACKING_PASSWORD=71368345455e3aa4cabbe321bbd6c4405a0db448
 python main.py
 ```
 ### (Optional) Step 6 - Add model.h5 in model folder
-**Follow this Step if you don't want to train model for 100 epochs as It will take a long time to complete training. I had already trained model named as **model.h5** for 100 epochs.**
-As model.h5 is very large in size(221 MB), So I cannot push it into github repository directly. So, you had to update it manually in **artifacts/training/** folder and you had to create a **model folder** manually and insert the model.h5 file in it.***
+Follow this Step if you don't want to train model for 100 epochs as It will take a long time to complete training. I had already trained model named as **model.h5** for 100 epochs.
+
+As model.h5 is very large in size(221 MB), So I cannot push it into github repository directly. So, you had to update it manually in **artifacts/training/** folder and you had to create a **model folder** manually and insert the model.h5 file in it.
+
 You can download the **model.h5** from [here](https://drive.google.com/file/d/10pglB6rAnIK9vBHp6GOTr5XrsmIDuFcn/view?usp=sharing)
-### Step 6 - Run the application server
+### Step 7 - Run the application server
 ```bash
 python app.py
 ```
-### Step 7 - Prediction application
+### Step 8 - Prediction application
 ```bash
 http://localhost:8080/
 
