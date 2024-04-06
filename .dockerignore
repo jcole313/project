@@ -7,3 +7,9 @@ artifacts/
 logs/
 notebooks/
 venv/
+prediction_service/
+env/
+research/
+mlruns/
+assets/
+artifacts/
