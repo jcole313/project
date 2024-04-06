@@ -75,7 +75,7 @@ git clone https://github.com/jcole313/project.git
 conda create -p env python=3.9 -y
 ```
 ```bash
-conda activate env/
+conda activate ./env
 ```
 ### Step 3 - Install the requirements
 ```bash
