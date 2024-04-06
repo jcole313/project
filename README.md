@@ -89,14 +89,12 @@ export MLFLOW_TRACKING_USERNAME=jcole313
 
 export MLFLOW_TRACKING_PASSWORD=71368345455e3aa4cabbe321bbd6c4405a0db448
 ```
-### Step 5. Train application
+### Step 5 - Train application
 ```bash
 python main.py
 ```
-OR
-```bash
-http://localhost:8080/train
-```
+### (Optional)Step 6 - Add model.h5 in model folder
+As model.h5 is very large in size(221 MB), So I cannot push it into github repository directly. So, you had to update it manually in 
 ### Step 6 - Run the application server
 ```bash
 python app.py
@@ -128,6 +126,34 @@ dvc repro
 ### Step 3 - See the Tree Structure of Pipeline
 ```bash
 dvc dag
+```
+
+## Run Using Docker Image
+To run the following commands, ensure you have the docker installed on your system.
+### Step 1 - Pull the Docker Image
+```
+docker pull jatin122002/chestfinal:latest
+```
+### Docker Container<a id='docker-container'></a>
+Now once you have the docker image from the Docker Hub, you can now run the following commands to test and deploy the container to the web.
+
+* Run a Docker Container<a id='run-docker-container'></a><br>
+Check all the available images:
+```bash
+docker images
+```
+Check if the container is running:
+```bash
+docker ps
+```
+### Step 2 - Use the following command to run a docker container on your system:
+```bash
+docker run -p 8080:8080 chestfinal
+```
+If the container is running, then the API services will be available on all the network interfaces.
+### Step 3 - To access the API service, type following in your local browser:
+```bash
+localhost:8080
 ```
 
 ## Prediction Outputs
