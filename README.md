@@ -152,7 +152,7 @@ docker ps
 ```
 ### Step 2 - Use the following command to run a docker container on your system:
 ```bash
-docker run -p 8080:8080 chestfinal
+docker run -p 8080:8080 jatin122002/chestfinal
 ```
 If the container is running, then the API services will be available on all the network interfaces.
 ### Step 3 - To access the API service, type following in your local browser:
